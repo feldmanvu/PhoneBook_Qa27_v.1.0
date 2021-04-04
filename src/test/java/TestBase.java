@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,7 +20,7 @@ public class TestBase {
 
     @AfterSuite
     public void tearDown (){
-        wd.quit();
+        //wd.quit();
 
     }
     public void fillByElement(WebElement element, String text){
@@ -27,6 +28,20 @@ public class TestBase {
         element.clear();
         element.sendKeys(text);
     }
+
+    public void fillByLocator(By locator, String text){
+        WebElement element= wd.findElement(locator);
+        element.click();
+        element.clear();
+        element.sendKeys(text);
+
+    }
+
+public boolean isElement(By locator){
+        return wd.findElements(locator).size()>0;
+}
+
+
 public void pause(int millis) {
 
     try {
@@ -36,4 +51,12 @@ public void pause(int millis) {
     }
 
 }
+public void login(String email, String password){
+    wd.findElement(By.cssSelector("[href='/login']")).click();
+    fillByLocator(By.cssSelector("input[placeholder='Email']"), email);
+    fillByLocator(By.cssSelector("[placeholder='Password']"), password);
+    wd.findElement(By.cssSelector("button:first-of-type")).click();
+}
+
+
 }
