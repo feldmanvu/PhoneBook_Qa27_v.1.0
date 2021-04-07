@@ -17,5 +17,5 @@ public class LogoutTest extends TestBase{
         wd.findElement(By.cssSelector("button")).click();
     }
 
-    
+
 }
