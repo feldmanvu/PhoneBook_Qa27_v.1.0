@@ -12,15 +12,15 @@ public class AddContactTest extends TestBase{
         }
     }
 
-    @Test(invocationCount = 3)
+    @Test(invocationCount = 1)
     public void addContact(){
         int index=(int)((System.currentTimeMillis()/1000)%3600);
         wd.findElement(By.cssSelector("[href='/add']")).click();
 
-        fillByLocator(By.cssSelector("[placeholder='Name']"),"Lola"+index);
-        fillByLocator(By.cssSelector("[placeholder='Last Name']"),"Now"+index);
-        fillByLocator(By.cssSelector("[placeholder='Phone']"),"9876"+index);
-        fillByLocator(By.cssSelector("[placeholder='email']"),"Lola"+index+"@mail.ru");
+        fillByLocator(By.cssSelector("[placeholder='Name']"),"Lolalololololololololo"+index);
+        fillByLocator(By.cssSelector("[placeholder='Last Name']"),"Nowolololololo"+index);
+        fillByLocator(By.cssSelector("[placeholder='Phone']"),"9875"+index);
+        fillByLocator(By.cssSelector("[placeholder='email']"),"Lola5555"+index+"@mail.ru");
         fillByLocator(By.cssSelector("[placeholder='Address']"),"Haifa/"+index);
         fillByLocator(By.cssSelector("[placeholder='description']"),"university friend");
 
