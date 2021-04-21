@@ -1,4 +1,6 @@
+import models.Contact;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -28,6 +30,24 @@ public class AddContactTest extends TestBase{
         pause(1500);
 
 
+    }
+    @Test
+    public void addContactByModel(){
+
+        int index=(int)((System.currentTimeMillis()/1000)%3600);
+        Contact contact= new Contact()
+                .withName("Lola"+index)
+                .withLastName("Marck"+index)
+                .withPhone("9875"+index)
+                .withEmail("Lola"+index+"@mail.ru")
+                .withAddress("Haifa")
+                .withDescription("Friend");
+        openContactForm();
+        fillContactForm(contact);
+        saveNewContact();
+        pause(2000);
+        //Assert.assertTrue(wd.findElement(By.xpath("//h2")).getText().contains(contact.getName()));
+        Assert.assertTrue(wd.findElement(By.xpath("//a[@class='active']")).getText().contains("CONTACTS"));
     }
     @AfterMethod
     public void postconditions(){

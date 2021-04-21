@@ -26,5 +26,17 @@ public class EditContactTest extends TestBase{
 
 
 }
+@Test
+    public void test(){
+    wd.findElement(By.xpath("//a[text()='CONTACTS']")).click();
+    wd.findElement(By.cssSelector(".contact-item_card__2SOIM")).click();
+    wd.findElement(By.xpath("//button[text()='Edit']")).click();
+    //wd.findElement(By.xpath("//input[@placeholder='Address']")).click();
+    wd.findElement(By.xpath("//input[@placeholder='Address']")).sendKeys("*");
+
+
+    pause(6000);
+
+}
 
 }
