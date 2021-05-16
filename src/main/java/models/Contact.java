@@ -1,12 +1,12 @@
 package models;
 
 public class Contact {
-    String name;
-    String lastName;
-    String phone;
-    String email;
-    String address;
-    String description;
+    private String name;
+    private String lastName;
+    private String phone;
+    private String email;
+    private String address;
+    private String description;
 
     public Contact withName(String name) {
         this.name = name;
@@ -23,12 +23,12 @@ public class Contact {
         return this;
     }
 
-    public Contact withEmail(String email) {
+    public Contact  withEmail(String email) {
         this.email = email;
         return this;
     }
 
-    public Contact withAddress(String address) {
+    public Contact  withAddress(String address) {
         this.address = address;
         return this;
     }
