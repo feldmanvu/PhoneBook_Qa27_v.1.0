@@ -17,7 +17,7 @@ public class AddContactTest extends TestBase {
 
 
 
-    @Test (groups = {"rest"})
+    @Test
     public void addContactTestRest() {
         app.getContact().clickContactButton();
         int contactSize = app.getContact().getContactSize();
@@ -36,10 +36,17 @@ public class AddContactTest extends TestBase {
         String address = "Tel Aviv"+i;
         String desc = "My new contact";
 
+        Contact contact =Contact.builder()
+                .name(name)
+                .lastName(lastName)
+                .email(email)
+                .phone(phone)
+                .address(address)
+                .description(desc).build();
 
         app.getContact().clickAddButton();
-        app.getContact().fillContactForm(new Contact().withName(name).withLastName(lastName)
-         .withEmail(email).withPhone(phone).withAddress(address).withDescription(desc));
+//        app.getContact().fillContactForm(new Contact().withName(name).withLastName(lastName)
+//         .withEmail(email).withPhone(phone).withAddress(address).withDescription(desc));
         app.getContact().clickSaveBatton();
         Assert.assertTrue(app.getContact().isNameExist(name));
 
@@ -53,10 +60,7 @@ public class AddContactTest extends TestBase {
 
            app.getContact().clearContactsWeb();
         }
-
-
-
-        int i = (int) (System.currentTimeMillis() / 1000) % 3600;
+     int i = (int) (System.currentTimeMillis() / 1000) % 3600;
         String name = "Lola" + i;
         String lastName = "Doe" + i;
         String email = "lola" + i + "@mail.com";
@@ -64,18 +68,31 @@ public class AddContactTest extends TestBase {
         String address = "Tel Aviv"+i;
         String desc = "My new contact";
 
+       // Contact contact = new Contact().withEmail("jh").withPhone("9888").withAddress("uivuh");
+
+        Contact contact =Contact.builder()
+                .name(name)
+                .lastName(lastName)
+                .email(email)
+                .phone(phone)
+                .address(address)
+                .description(desc).build();
+
 
         app.getContact().clickAddButton();
-        app.getContact().fillContactForm(new Contact().withName(name).withLastName(lastName)
-                .withEmail(email).withPhone(phone).withAddress(address).withDescription(desc));
+        app.getContact().fillContactForm(contact);
+//                new Contact().withName(name).withLastName(lastName)
+//                .withEmail(email).withPhone(phone).withAddress(address).withDescription(desc)
+
+
+
+
+
         app.getContact().clickSaveBatton();
 
         Assert.assertTrue(app.getContact().isNameExist(name));
 
     }
 
-    public void useLomBokStyle(){
 
-        //LomBokStyle style =LomBokStyle.builder().name("Lom").lname("Bok").build();
-    }
 }
