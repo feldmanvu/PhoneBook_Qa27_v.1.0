@@ -131,13 +131,13 @@ public class ContactHelper extends HelperBase{
 
     public void removeOneContact() {
 
-
-        WebElement el = wd.findElement(By.className("contact-item_card__2SOIM"));
-        el.click();
-        pause(500);
-        wd.findElement(By.xpath("//button[.='Remove']")).click();
-        pause(500);
-
+if(wd.findElements(By.className("contact-item_card__2SOIM")).size()>0) {
+    WebElement el = wd.findElement(By.className("contact-item_card__2SOIM"));
+    el.click();
+    pause(500);
+    wd.findElement(By.xpath("//button[.='Remove']")).click();
+    pause(500);
+}
 
     }
     }
