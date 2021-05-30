@@ -2,6 +2,7 @@ package application;
 
 import models.User;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class UserHelper extends HelperBase {
@@ -49,4 +50,7 @@ public class UserHelper extends HelperBase {
     public boolean isLoginButtonPresent() {
         return isElementPresent(By.xpath("//*[.=' Login']"));
     }
+
+
+
 }
